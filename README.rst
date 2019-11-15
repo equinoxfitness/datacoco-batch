@@ -14,6 +14,8 @@ Getting started with Datacoco Batch
   :target: http://sphinx-rtd-theme.readthedocs.io/en/latest/?badge=latest
   :alt: Documentation Status
 
+Batch is a simple interface for managing the state of jobs and workflows in batchy microservice.
+
 Tests
 ============
 To run the testing suite, the following commands are required:

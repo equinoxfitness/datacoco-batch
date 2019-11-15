@@ -12,7 +12,7 @@ requires = [
 ]
 
 setup(
-    name="datacoco batch",
+    name="datacoco-batch",
     version=VERSION,
     author="Equinox",
     description="",
@@ -21,12 +21,5 @@ setup(
     scripts=[],
     license="MIT",
     packages=find_packages(exclude=["tests*"]),
-    install_requires=requires,
-    classifiers=[
-        "Development Status :: 1 - Production/Stable",
-        "Intended Audience :: Developers",
-        "Natural Language :: English",
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 3.6",
-    ],
+    install_requires=requires
 )
