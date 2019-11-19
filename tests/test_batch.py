@@ -1,7 +1,6 @@
 import unittest
 import os
-
-from module.module import Batch
+from datacoco_batch.Batch import Batch
 
 class TestBatch(unittest.TestCase):
 
@@ -9,10 +8,11 @@ class TestBatch(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-      cls.batchy = Batch(cls.test_wf, {
-        'server': 'hypergate-services.equinoxfitness.com',
-        'port': '80'
-      })
+      cls.batchy = Batch(
+        wf = cls.test_wf,
+        server = 'hypergate-services.equinoxfitness.com',
+        port = '80'
+      )
 
     def test_open_batch(self):  # "status": "open"
         resp = self.batchy.open()

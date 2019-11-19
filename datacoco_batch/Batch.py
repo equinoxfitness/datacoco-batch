@@ -5,14 +5,14 @@ class Batch(object):
     """
     integrated integration to Batchy batch control system
     """
-    def __init__(self, wf:str, config:object):
+    def __init__(self, wf:str, server:str, port:int):
         self.wf = wf
         try:
-            server = config['server']
+            server = server
         except:
             server = '0.0.0.0'
         try:
-            port = config['port']
+            port = port
         except:
             port = '8050'
         # different URL if behind load balancer

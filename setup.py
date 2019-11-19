@@ -1,25 +1,17 @@
 #!/usr/bin/env python
 
-"""
-setuptools install script.
-"""
-from setuptools import setup, find_packages
-
-from module import VERSION
-
-requires = [
-  "requests==2.22.0"
-]
-
+from setuptools import setup
 setup(
     name="datacoco-batch",
-    version=VERSION,
+    version="0.1.0",
     author="Equinox",
     description="",
     long_description=open("README.rst").read(),
     url="https://github.com/equinoxfitness/datacoco-batch",
+    download_url = 'https://github.com/equinoxfitness/datacoco-batch/archive/v-0.1.0.tar.gz',
+    keywords = ['helper', 'config', 'logging', 'common'],
     scripts=[],
     license="MIT",
-    packages=find_packages(exclude=["tests*"]),
-    install_requires=requires
+    packages = ['datacoco_batch'],
+    install_requires=["requests==2.22.0"]
 )
