@@ -8,7 +8,7 @@ pipeline{
         }
     }
     environment {
-        CODACY_PROJECT_TOKEN = credentials('codacy-coco.core')
+        CODACY_PROJECT_TOKEN = credentials('codacy-coco.batch')
     }
     triggers {
         pollSCM 'H/10 * * * *'
