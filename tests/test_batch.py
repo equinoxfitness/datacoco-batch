@@ -1,6 +1,6 @@
 import unittest
 import os
-from datacoco_batch.Batch import Batch
+from datacoco_batch.batch import Batch
 
 class TestBatch(unittest.TestCase):
 

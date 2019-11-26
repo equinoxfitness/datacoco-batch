@@ -46,9 +46,14 @@ pipeline{
                 }
             }
         }
-        stage('Deploy to Pypi') {
+        stage('Deploy to Test Pypi Env') {
+            when {
+                anyOf {
+                    branch 'qa';
+                    branch 'stag';
+                }
+            }
             steps {
-
                 withCredentials([[
                     $class: 'UsernamePasswordMultiBinding',
                     credentialsId: 'e9f73e25-ab88-4382-9018-dd0841cc327c',
@@ -59,7 +64,26 @@ pipeline{
                     sh "rm -rf dist"
                     sh "python setup.py sdist"
                     sh "twine upload --repository-url https://test.pypi.org/legacy/ --skip-existing dist/* -u ${USERNAME} -p ${PASSWORD}"
-                    //sh "twine upload --skip-existing dist/* -u ${USERNAME} -p ${PASSWORD}"
+                }
+            }
+        }
+        stage('Deploy to Pypi') {
+            when {
+                anyOf {
+                    branch 'master';
+                }
+            }
+            steps {
+                withCredentials([[
+                    $class: 'UsernamePasswordMultiBinding',
+                    credentialsId: 'e9f73e25-ab88-4382-9018-dd0841cc327c',
+                    usernameVariable: 'USERNAME',
+                    passwordVariable: 'PASSWORD'
+                ]]) {
+                    sh "pip install twine"
+                    sh "rm -rf dist"
+                    sh "python setup.py sdist"
+                    sh "twine upload --skip-existing dist/* -u ${USERNAME} -p ${PASSWORD}"
                 }
             }
         }
