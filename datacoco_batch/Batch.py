@@ -1,7 +1,7 @@
 import requests
 import os, sys
 
-class Batch(object):
+class Batch:
     """
     integrated integration to Batchy batch control system
     """
