@@ -3,7 +3,7 @@
 pipeline{
     agent {
         docker {
-            image 'python:3.7.0'
+            image 'python:3.7.4'
             args '-u root'
         }
     }
@@ -48,10 +48,7 @@ pipeline{
         }
         stage('Deploy to Test Pypi Env') {
             when {
-                anyOf {
-                    branch 'qa';
-                    branch 'stag';
-                }
+                branch 'master'
             }
             steps {
                 withCredentials([[
@@ -70,7 +67,7 @@ pipeline{
         stage('Deploy to Pypi') {
             when {
                 anyOf {
-                    branch 'master';
+                    branch 'master'
                 }
             }
             steps {
