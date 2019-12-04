@@ -48,7 +48,11 @@ pipeline{
         }
         stage('Deploy to Test Pypi Env') {
             when {
-                branch 'master'
+                anyOf {
+                    branch 'qa';
+                    branch 'stag';
+                    branch 'test';
+                }
             }
             steps {
                 withCredentials([[
@@ -66,9 +70,7 @@ pipeline{
         }
         stage('Deploy to Pypi') {
             when {
-                anyOf {
-                    branch 'master'
-                }
+                branch 'master'
             }
             steps {
                 withCredentials([[
