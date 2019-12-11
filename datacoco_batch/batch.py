@@ -1,19 +1,19 @@
 import requests
-import os, sys
+
 
 class Batch:
     """
     integrated integration to Batchy batch control system
     """
-    def __init__(self, wf:str, server:str, port:int):
+    def __init__(self, wf: str, server: str, port: int):
         self.wf = wf
         try:
             server = server
-        except:
+        except BaseException:
             server = '0.0.0.0'
         try:
             port = port
-        except:
+        except BaseException:
             port = '8050'
         # different URL if behind load balancer
         if "hypergate" in server and port == '80':
@@ -71,12 +71,12 @@ class Batch:
         """
         details = self.get_status()
         r = {'batch_id': 0, 'status': 'success', 'failure_cnt': 0, 'open_cnt': 0, 'batch_start': '', 'batch_end': ''}
-        for k,x in details.items():
-            if  x.get('status') == 'failure':
+        for x in details.items():
+            if x.get('status') == 'failure':
                 r['failure_cnt'] += 1
-            if  x.get('status') == 'open':
+            if x.get('status') == 'open':
                 r['open_cnt'] += 1
-            r['batch_start'] = x.get('batch_start') if r['batch_start'] is None or x.get('batch_start') <  r['batch_start'] else  r['batch_start']
+            r['batch_start'] = x.get('batch_start') if r['batch_start'] is None or x.get('batch_start') < r['batch_start'] else r['batch_start']
             r['batch_end'] = x.get('batch_end') if 'batch_end' in r or x.get('batch_end') > r['batch_end'] else r['batch_end']
             r['batch_id'] = x.get('batch_id')
         if r['failure_cnt'] > 0:

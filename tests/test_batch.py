@@ -1,6 +1,6 @@
 import unittest
-import os
 from datacoco_batch.batch import Batch
+
 
 class TestBatch(unittest.TestCase):
 
@@ -20,19 +20,17 @@ class TestBatch(unittest.TestCase):
         self.assertEqual(status, 'open')
 
     def test_get_status(self):
-      expected_keys = ['global']
-      resp = self.batchy.get_status()
-      self.assertEqual(list(resp.keys()), expected_keys)
-
-    def test_close_batch(self): # "status": "success"
         expected_keys = ['global']
+        resp = self.batchy.get_status()
+        self.assertEqual(list(resp.keys()), expected_keys)
+
+    def test_close_batch(self):  # "status": "success"
         resp = self.batchy.close()
         status = resp['global']['status']
 
         self.assertEqual(status, 'success')
 
-    def test_fail_batch(self): # "status": "failure"
-        expected_keys = ['global']
+    def test_fail_batch(self):  # "status": "failure"
         resp = self.batchy.fail()
         status = resp['global']['status']
 
