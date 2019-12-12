@@ -23,7 +23,8 @@ class Batch:
 
     def open(self, fmt=None):
         """
-        opens batch and returns batch params, by default batch params will be returned as python objects
+        opens batch and returns batch params, by default batch params will be
+        returned as python objects
         :param wf:
         :param fmt: infa, json (default is python object)
         :return:
@@ -32,7 +33,8 @@ class Batch:
         if fmt == 'json':
             r = requests.get(self.server_url + '/open_batch/' + self.wf).text()
         elif fmt == 'infa':
-            r = requests.get(self.server_url + '/open_batch/infa/' + self.wf).text()
+            r = requests.get(self.server_url + '/open_batch/infa/' +
+                             self.wf).text()
         else:
             r = requests.get(self.server_url + '/open_batch/' + self.wf).json()
         return r
@@ -70,7 +72,9 @@ class Batch:
         :return:
         """
         details = self.get_status()
-        r = {'batch_id': 0, 'status': 'success', 'failure_cnt': 0, 'open_cnt': 0, 'batch_start': '', 'batch_end': ''}
+        r = {'batch_id': 0, 'status': 'success', 'failure_cnt': 0,
+             'open_cnt': 0, 'batch_start': '', 'batch_end': ''}
+
         for x in details.items():
             if x.get('status') == 'failure':
                 r['failure_cnt'] += 1

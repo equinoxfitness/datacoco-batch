@@ -8,11 +8,11 @@ class TestBatch(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-      cls.batchy = Batch(
-        wf = cls.test_wf,
-        server = 'hypergate-services.equinoxfitness.com',
-        port = '80'
-      )
+        cls.batchy = Batch(
+            wf=cls.test_wf,
+            server='hypergate-services.equinoxfitness.com',
+            port='80'
+        )
 
     def test_open_batch(self):  # "status": "open"
         resp = self.batchy.open()
@@ -37,6 +37,7 @@ class TestBatch(unittest.TestCase):
         self.assertEqual(status, 'failure')
 
     def test_get_status_summary(self):
-        expected_keys = ['batch_id', 'status', 'failure_cnt', 'open_cnt', 'batch_start', 'batch_end']
+        expected_keys = ['batch_id', 'status', 'failure_cnt', 'open_cnt',
+                         'batch_start', 'batch_end']
         resp = self.batchy.get_status_summary()
         self.assertEqual(list(resp.keys()), expected_keys)
