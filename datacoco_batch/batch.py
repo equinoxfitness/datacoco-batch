@@ -5,16 +5,8 @@ class Batch:
     """
     integrated integration to Batchy batch control system
     """
-    def __init__(self, wf: str, server: str, port: int):
+    def __init__(self, wf: str, server='0.0.0.0', port='8050'):
         self.wf = wf
-        try:
-            server = server
-        except BaseException:
-            server = '0.0.0.0'
-        try:
-            port = port
-        except BaseException:
-            port = '8050'
         # different URL if behind load balancer
         if "hypergate" in server and port == '80':
             self.server_url = 'http://' + server + '/batchy'
