@@ -75,7 +75,7 @@ class Batch:
             "batch_end": "",
         }
 
-        for x in details.items():
+        for k, x in details.items():
             if x.get("status") == "failure":
                 r["failure_cnt"] += 1
             if x.get("status") == "open":
