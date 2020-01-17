@@ -6,7 +6,7 @@ class Batch:
     integrated integration to Batchy batch control system
     """
 
-    def __init__(self, wf: str, server="0.0.0.0", port="8050"):
+    def __init__(self, wf: str, server="0.0.0.0", port="8050"):  # nosec
         self.wf = wf
         # different URL if behind load balancer
         if "hypergate" in server and port == "80":
