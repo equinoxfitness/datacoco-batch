@@ -13,8 +13,8 @@ datacoco-batch
     :target: https://www.codacy.com/manual/equinoxfitness/datacoco-batch?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=equinoxfitness/datacoco-batch&amp;utm_campaign=Badge_Coverage
     :alt: Coverage
 
-.. image:: https://readthedocs.org/projects/sphinx-rtd-theme/badge/?version=latest
-    :target: http://sphinx-rtd-theme.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/datacoco-batch/badge/?version=latest
+    :target: https://datacoco-batch.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
 .. image:: https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg
