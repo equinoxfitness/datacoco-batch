@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.1.1] - 2020-03-18
+### Changes
+    - Support external package future minor versions
 
 
 ## [0.1.0] - 2020-02-06
@@ -16,4 +19,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - Codacy config
     - Initial datacoco batch class
 
-[0.0.1]: https://github.com/equinoxfitness/datacoco-batch/releases/tag/0.1.0
+[0.1.1]: https://github.com/equinoxfitness/datacoco-batch/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/equinoxfitness/datacoco-batch/releases/tag/v0.1.0
