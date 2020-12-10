@@ -3,7 +3,7 @@
 from setuptools import setup
 setup(
     name="datacoco-batch",
-    version="0.1.1",
+    version="0.1.2",
     author="Equinox",
     description="Data common code for batch workflows by Equinox",
     long_description=open("README.rst").read(),
